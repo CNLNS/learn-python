@@ -16,39 +16,42 @@ bool guess_one_hint(int a)
 	}
 	return (x==a);
 }
+bool guess_print_hint(int i,int t)
+{
+	if(i=(t-1))
+		return false;
+}
 bool guess_with_hint(int a ,int t)
 {
 	int b;
 	scanf("%d",&b);
-	int y=1;
-	y+=1;
-	if(b<a)
+	for(int i=0;i<t;i++)
+	{
+			if(b<a)
 		{
-			if(y<t)
+			
+			bool ret = guess_print_hint(i,t);
+			if(ret ==true)
 			{
-			printf("Small,please try again:\n");
-			}
-			else if(y==t)
-			{
-				return (a == b);
+				printf("Small,please try again:\n");
 			}
 		}
-		else if(b>a)
-		{
-			if(y<t)
+			else if(b>a)
 			{
-			printf("Big,please try again:");
+				
+				bool ret = guess_print_hint(i,t);
+				if(ret == true)
+				{
+					printf("Big,please try again:");
+				}
+				
 			}
-			else if(y==t)
-			{
-				return (a == b);
-			}
-		}
 		else
 		{
 			printf("Congretulations to guess right:%d\n",b);
 		}
-		return (a == b);
+			return (a == b);
+	}
 	
 }
 int rand_int(int a,int b)
@@ -72,6 +75,7 @@ bool guess(int a,int t)
 		for(int i=0;i<t;i++)
 		{
 			ret = guess_with_hint(a,t);
+			
 			if(t == (i+1))
 			{
 				printf("times you guess are:%d\n",t);
