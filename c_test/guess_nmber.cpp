@@ -12,14 +12,17 @@ bool guess_one_hint(int a)
 	}
 	else
 	{
-	printf("Sorry,you are wrong,the right number is:%d\n",a);
+		printf("Sorry,you are wrong,the right number is:%d\n",a);
 	}
 	return (x==a);
 }
 bool guess_print_hint(int i,int t)
 {
 	if(i=(t-1))
+	{
 		return false;
+	}
+	else return true;
 }
 bool guess_with_hint(int a ,int t)
 {
@@ -27,32 +30,29 @@ bool guess_with_hint(int a ,int t)
 	scanf("%d",&b);
 	for(int i=0;i<t;i++)
 	{
-			if(b<a)
+		if(b<a)
 		{
-			
 			bool ret = guess_print_hint(i,t);
 			if(ret ==true)
 			{
 				printf("Small,please try again:\n");
 			}
 		}
-			else if(b>a)
+		else if(b>a)
+		{
+			bool ret = guess_print_hint(i,t);
+			if(ret == true)
 			{
-				
-				bool ret = guess_print_hint(i,t);
-				if(ret == true)
-				{
-					printf("Big,please try again:");
-				}
-				
+				printf("Big,please try again:");
 			}
+		}
 		else
 		{
 			printf("Congretulations to guess right:%d\n",b);
 		}
-			return (a == b);
+		return (a == b);
 	}
-	
+
 }
 int rand_int(int a,int b)
 {
@@ -75,7 +75,7 @@ bool guess(int a,int t)
 		for(int i=0;i<t;i++)
 		{
 			ret = guess_with_hint(a,t);
-			
+
 			if(t == (i+1))
 			{
 				printf("times you guess are:%d\n",t);
@@ -89,19 +89,19 @@ bool guess(int a,int t)
 				break;
 			}
 		}
-			
+
 	}
 	return ret;
 }	
 void help(int m,int n)
 {
-printf("本游戏玩法如如下：\n");
-printf("此游戏请用户猜20到200之间的数\n");
-printf("首先请用户输入您想要猜测的次数\n");
-printf("然后程序会根据您输入的结果开始运行\n");
-printf("在游戏结束后您会看到自己猜测的数值和系统的答案\n\n");
-printf("\t\t\t\t\t\t祝您游戏愉快!!!\n");
-printf("\t\t\t\t\t\tBy  Si jianwei	Apr,2015\n\n\n\n");
+	printf("本游戏玩法如如下：\n");
+	printf("此游戏请用户猜20到200之间的数\n");
+	printf("首先请用户输入您想要猜测的次数\n");
+	printf("然后程序会根据您输入的结果开始运行\n");
+	printf("在游戏结束后您会看到自己猜测的数值和系统的答案\n\n");
+	printf("\t\t\t\t\t\t祝您游戏愉快!!!\n");
+	printf("\t\t\t\t\t\tBy  Si jianwei	Apr,2015\n\n\n\n");
 }
 int main()
 {
@@ -115,5 +115,5 @@ int main()
 	scanf("%d",&t);
 	guess(a,t);
 	return 0;
-	
+
 }
